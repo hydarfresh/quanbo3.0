@@ -26,17 +26,99 @@ export const constantRouterMap = [
   { path: '/404', component: () => import('@/views/404'), hidden: true },
 
   {
-    path: '/',
+    path: '',
     component: Layout,
+    name: 'dashboard',
     redirect: '/dashboard',
-    name: 'Dashboard',
-    hidden: true,
+    meta: { title: '数据', icon: 'tree' },
     children: [{
       path: 'dashboard',
+      meta: { title: '数据', icon: 'tree' },
       component: () => import('@/views/dashboard/index')
     }]
   },
-
+  {
+    path: '',
+    component: Layout,
+    name: 'adminlist',
+    redirct: 'adminlist',
+    meta: { title: '管理员列表', icon: 'tree' },
+    children: [{
+      path: 'adminlist',
+      meta: { title: '管理员列表', icon: 'tree' },
+      component: () => import('@/views/adminlist/index')
+    }]
+  },
+  {
+    path: '',
+    component: Layout,
+    name: 'ads',
+    redirct: 'ads',
+    meta: { title: '数据', icon: 'tree' },
+    children: [{
+      path: 'ads',
+      meta: { title: '广告管理', icon: 'tree' },
+      component: () => import('@/views/ads/index')
+    },
+      {
+        path: 'ads',
+        meta: { title: '广告管理', icon: 'tree' },
+        component: () => import('@/views/ads/index')
+      }]
+  },
+  {
+    path: '',
+    component: Layout,
+    name: 'act',
+    redirct: 'act',
+    meta: { title: '数据', icon: 'tree' },
+    children: [{
+      path: 'act',
+      meta: { title: '活动管理', icon: 'tree' },
+      component: () => import('@/views/act/index')
+    }]
+  },
+  {
+    path: '',
+    component: Layout,
+    name: 'msg',
+    redirect: 'msg',
+    meta: { title: '数据', icon: 'tree' },
+    children: [{
+      path: 'msg',
+      meta: { title: '消息管理', icon: 'tree' },
+      component: () => import('@/views/msg/index')
+    }]
+  },
+  {
+    path: '/user',
+    component: Layout,
+    name: 'user',
+    redirect: '/user',
+    meta: { title: '用户管理', icon: 'tree' },
+    children: [{
+      path: 'msg',
+      meta: { title: '用户消息', icon: 'tree' },
+      component: () => import('@/views/user/msg')
+    },
+    {
+      path: 'sug',
+      meta: { title: '意见反馈', icon: 'tree' },
+      component: () => import('@/views/user/sug')
+    }]
+  },
+  {
+    path: '',
+    component: Layout,
+    name: 'version',
+    redirect: 'version',
+    meta: { title: '数据', icon: 'tree' },
+    children: [{
+      path: 'version',
+      meta: { title: '版本管理', icon: 'tree' },
+      component: () => import('@/views/version/index')
+    }]
+  },
   {
     path: '/example',
     component: Layout,
@@ -55,19 +137,6 @@ export const constantRouterMap = [
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
       }
     ]
   },

@@ -4,7 +4,7 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 const user = {
   state: {
     token: getToken(),
-    name: '',
+    name: '张三',
     avatar: '',
     roles: []
   },
@@ -50,7 +50,6 @@ const user = {
           } else {
             reject('getInfo: roles must be a non-null array !')
           }
-          commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)
           resolve(response)
         }).catch(error => {
