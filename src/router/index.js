@@ -54,17 +54,17 @@ export const constantRouterMap = [
     component: Layout,
     name: 'ads',
     redirct: 'ads',
-    meta: { title: '数据', icon: 'tree' },
+    meta: { title: '广告管理', icon: 'tree' },
     children: [{
-      path: 'ads',
-      meta: { title: '广告管理', icon: 'tree' },
-      component: () => import('@/views/ads/index')
+      path: 'banner',
+      meta: { title: 'banner管理', icon: 'tree' },
+      component: () => import('@/views/ads/banner')
     },
-      {
-        path: 'ads',
-        meta: { title: '广告管理', icon: 'tree' },
-        component: () => import('@/views/ads/index')
-      }]
+    {
+      path: 'kaiping',
+      meta: { title: '开屏广告管理', icon: 'tree' },
+      component: () => import('@/views/ads/kaiping')
+    }]
   },
   {
     path: '',
