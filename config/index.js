@@ -7,10 +7,19 @@ const path = require('path')
 module.exports = {
   dev: {
 
-    // Paths
+    // 本地解决跨域问题
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {    //将www.exaple.com印射为/apis
+        target: 'http://cdn.qbitv.net/api',  // 接口域名
+        changeOrigin: true,  //是否跨域
+        pathRewrite: {
+          '^/api': ''   //需要rewrite的,
+        }
+      }
+
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

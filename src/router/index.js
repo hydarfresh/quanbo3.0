@@ -21,20 +21,36 @@ import Layout from '../views/layout/Layout'
     icon: 'svg-name'             the icon show in the sidebar,
   }
 **/
-export const constantRouterMap = [
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
-  { path: '/404', component: () => import('@/views/404'), hidden: true },
+export const constantRouterMap = [{
+    path: '/login',
+    component: () =>
+      import ('@/views/login/index'),
+    hidden: true
+  },
+  {
+    path: '/404',
+    component: () =>
+      import ('@/views/404'),
+    hidden: true
+  },
 
   {
     path: '',
     component: Layout,
     name: 'dashboard',
     redirect: '/dashboard',
-    meta: { title: '数据', icon: 'tree' },
+    meta: {
+      title: '数据',
+      icon: 'tree'
+    },
     children: [{
       path: 'dashboard',
-      meta: { title: '数据', icon: 'tree' },
-      component: () => import('@/views/dashboard/index')
+      meta: {
+        title: '数据',
+        icon: 'icon_menu_data'
+      },
+      component: () =>
+        import ('@/views/dashboard/index')
     }]
   },
   {
@@ -42,11 +58,18 @@ export const constantRouterMap = [
     component: Layout,
     name: 'adminlist',
     redirct: 'adminlist',
-    meta: { title: '管理员列表', icon: 'tree' },
+    meta: {
+      title: '管理员列表',
+      icon: ''
+    },
     children: [{
       path: 'adminlist',
-      meta: { title: '管理员列表', icon: 'tree' },
-      component: () => import('@/views/adminlist/index')
+      meta: {
+        title: '管理员列表',
+        icon: 'icon_menu_admin'
+      },
+      component: () =>
+        import ('@/views/adminlist/index')
     }]
   },
   {
@@ -54,28 +77,47 @@ export const constantRouterMap = [
     component: Layout,
     name: 'ads',
     redirct: 'ads',
-    meta: { title: '广告管理', icon: 'tree' },
-    children: [{
-      path: 'banner',
-      meta: { title: 'banner管理', icon: 'tree' },
-      component: () => import('@/views/ads/banner')
+    meta: {
+      title: '广告管理',
+      icon: 'icon_menu_ad'
     },
-    {
-      path: 'kaiping',
-      meta: { title: '开屏广告管理', icon: 'tree' },
-      component: () => import('@/views/ads/kaiping')
-    }]
+    children: [{
+        path: 'banner',
+        meta: {
+          title: 'banner管理',
+          icon: ''
+        },
+        component: () =>
+          import ('@/views/ads/banner')
+      },
+      {
+        path: 'kaiping',
+        meta: {
+          title: '开屏广告管理',
+          icon: ''
+        },
+        component: () =>
+          import ('@/views/ads/kaiping')
+      }
+    ]
   },
   {
     path: '',
     component: Layout,
     name: 'act',
     redirct: 'act',
-    meta: { title: '数据', icon: 'tree' },
+    meta: {
+      title: '数据',
+      icon: 'tree'
+    },
     children: [{
       path: 'act',
-      meta: { title: '活动管理', icon: 'tree' },
-      component: () => import('@/views/act/index')
+      meta: {
+        title: '活动管理',
+        icon: 'icon_menu_activity'
+      },
+      component: () =>
+        import ('@/views/act/index')
     }]
   },
   {
@@ -83,11 +125,18 @@ export const constantRouterMap = [
     component: Layout,
     name: 'msg',
     redirect: 'msg',
-    meta: { title: '数据', icon: 'tree' },
+    meta: {
+      title: '数据',
+      icon: 'tree'
+    },
     children: [{
       path: 'msg',
-      meta: { title: '消息管理', icon: 'tree' },
-      component: () => import('@/views/msg/index')
+      meta: {
+        title: '消息管理',
+        icon: 'icon_menu_message'
+      },
+      component: () =>
+        import ('@/views/msg/index')
     }]
   },
   {
@@ -95,58 +144,92 @@ export const constantRouterMap = [
     component: Layout,
     name: 'user',
     redirect: '/user',
-    meta: { title: '用户管理', icon: 'tree' },
-    children: [{
-      path: 'msg',
-      meta: { title: '用户消息', icon: 'tree' },
-      component: () => import('@/views/user/msg')
+    meta: {
+      title: '用户管理',
+      icon: 'icon_menu_user'
     },
-    {
-      path: 'sug',
-      meta: { title: '意见反馈', icon: 'tree' },
-      component: () => import('@/views/user/sug')
-    }]
+    children: [{
+        path: 'msg',
+        meta: {
+          title: '用户信息',
+          icon: ''
+        },
+        component: () =>
+          import ('@/views/user/msg')
+      },
+      {
+        path: 'sug',
+        meta: {
+          title: '意见反馈',
+          icon: ''
+        },
+        component: () =>
+          import ('@/views/user/sug')
+      }
+    ]
   },
   {
     path: '',
     component: Layout,
     name: 'version',
     redirect: 'version',
-    meta: { title: '数据', icon: 'tree' },
+    meta: {
+      title: '数据',
+      icon: 'tree'
+    },
     children: [{
       path: 'version',
-      meta: { title: '版本管理', icon: 'tree' },
-      component: () => import('@/views/version/index')
+      meta: {
+        title: '版本管理',
+        icon: 'icon_menu_version'
+      },
+      component: () =>
+        import ('@/views/version/index')
     }]
   },
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
+  // {
+  //   path: '/example',
+  //   component: Layout,
+  //   redirect: '/example/table',
+  //   name: 'Example',
+  //   meta: {
+  //     title: 'Example',
+  //     icon: 'example'
+  //   },
+  //   children: [{
+  //       path: 'table',
+  //       name: 'Table',
+  //       component: () =>
+  //         import ('@/views/table/index'),
+  //       meta: {
+  //         title: 'Table',
+  //         icon: 'table'
+  //       }
+  //     },
+  //     {
+  //       path: 'tree',
+  //       name: 'Tree',
+  //       component: () =>
+  //         import ('@/views/tree/index'),
+  //       meta: {
+  //         title: 'Tree',
+  //         icon: 'tree'
+  //       }
+  //     }
+  //   ]
+  // },
 
-  { path: '*', redirect: '/404', hidden: true }
+  // {
+  //   path: '*',
+  //   redirect: '/404',
+  //   hidden: true
+  // }
 ]
 
 export default new Router({
   // mode: 'history', //后端支持可开
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes: constantRouterMap
 })
-
